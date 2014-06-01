@@ -9,5 +9,13 @@
     "express": "3.4.0",
     "jade": "*",
     "twit": "*"
+  },
+  "devDependencies": {
+    "grunt-autoprefixer": "^0.7.3",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-uglify": "^0.4.0"
   }
 }

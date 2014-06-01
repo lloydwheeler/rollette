@@ -1,0 +1,10 @@
+@mixin button() {
+  border: 1px solid red;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.roll-comrade {
+  @include button;
+}

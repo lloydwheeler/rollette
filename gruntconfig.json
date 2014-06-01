@@ -1,6 +1,6 @@
 {
-  "scriptBuildDir" : "assets/scripts/build/",
-  "scriptProductionDir" : "assets/scripts/production/",
-  "stylesheetBuildDir" : "assets/stylesheets/build/",
-  "stylesheetProductionDir" : "assets/stylesheets/production/"
+  "scriptBuildDir" : "public/scripts/build/",
+  "scriptProductionDir" : "public/scripts/production/",
+  "stylesheetBuildDir" : "public/stylesheets/build/",
+  "stylesheetProductionDir" : "public/stylesheets/production/"
 }

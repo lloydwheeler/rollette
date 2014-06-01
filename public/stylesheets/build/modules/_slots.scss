@@ -1,0 +1,64 @@
+.slots-wrapper {
+  height: 400px;
+  margin: 150px auto;
+  perspective: 800;
+  width: 600px;
+}
+
+.slots {
+  height: 400px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  width: 600px;
+}
+
+.slot {
+  margin: 0 auto;
+  margin-top: 200px;
+  height: 110px;
+  width: 600px;
+  transform-style: preserve-3d;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-name: x-spin;
+}
+
+.slot__item {
+  background: red;
+  backface-visibility: hidden;
+  position: absolute;
+  left: 250px;
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+  color: rgba(0,0,0,1);
+}
+
+@mixin animateSlots($duration, $numSlots) {
+  animation-duration: $duration; 
+  .slot__item {
+    @for $i from 1 through $numSlots {
+      &:nth-child(#{$i}) {
+        transform: rotateX(#{($i - 1)*(360/$numSlots)}deg) translateZ(200px);
+      }
+    }
+  }
+}
+
+.slot-1 {
+  &.roll {
+    @include animateSlots(2s, 12);
+  }
+}
+
+.slot-2 {
+  &.roll {
+    @include animateSlots(3s, 6);
+  }
+}
+
+// Animation
+@keyframes x-spin {
+  from    { transform: rotateX(0deg); }
+  to   { transform: rotateX(720deg); }
+}
