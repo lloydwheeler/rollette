@@ -19,7 +19,13 @@ app.configure(function(){
  
 app.get('/', routes.index);
  
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
   var clientID = socket.id;
-  console.log(clientID);
+
+  socket.on('new-roll', function(fillings) {
+    console.log(fillings);
+    this.broadcast.emit('new-roll', {data: fillings});
+  })
+
 });
+

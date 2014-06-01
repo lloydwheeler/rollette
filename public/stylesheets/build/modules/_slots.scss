@@ -14,20 +14,22 @@
 
 .slot {
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 20px;
+  float: left;
   height: 110px;
-  width: 600px;
+  width: 200px;
   transform-style: preserve-3d;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
-  animation-name: x-spin;
+  
+  
 }
 
 .slot__item {
   background: red;
   backface-visibility: hidden;
   position: absolute;
-  left: 250px;
+  // left: 250px;
   width: 100px;
   height: 100px;
   opacity: 0.7;
@@ -46,19 +48,41 @@
 }
 
 .slot-1 {
+  @include animateSlots(3s, 6);
+
   &.roll {
-    @include animateSlots(2s, 12);
+    animation-name: spin-1;
   }
 }
 
 .slot-2 {
+  @include animateSlots(4.5s, 6);
+
   &.roll {
-    @include animateSlots(3s, 6);
+    animation-name: spin-1;
+  }
+}
+
+.slot-3 {
+  @include animateSlots(6s, 6);
+
+  &.roll {
+    animation-name: spin-1;
   }
 }
 
 // Animation
-@keyframes x-spin {
-  from    { transform: rotateX(0deg); }
-  to   { transform: rotateX(720deg); }
+@keyframes spin-1 {
+  from  { transform: rotateX(0deg); }
+  to { transform: rotateX(-720deg); }
+}
+
+@keyframes spin-2 {
+  from  { transform: rotateX(0deg); }
+  to { transform: rotateX(-1080deg); }
+}
+
+@keyframes spin-3 {
+  from  { transform: rotateX(0deg); }
+  to { transform: rotateX(-1440deg); }
 }
