@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Sequence Russian Rollette
+    meta(name='viewport', content='user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='interface', content='desktop')
+    link(rel='shortcut icon', type='image/ico', href='favicon.ico')
+  body
+    block content
+
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(type='text/javascript').
+      socket = io.connect('localhost:3000');
+      
