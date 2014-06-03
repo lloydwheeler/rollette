@@ -22,8 +22,10 @@ app.get('/', routes.index);
 io.on('connection', function(socket) {
   var clientID = socket.id;
 
+  console.log('new client joined')
+
   socket.on('new-roll', function(fillings) {
-    console.log(fillings);
+    console.log('client has rolled');
     this.broadcast.emit('new-roll', {data: fillings});
   })
 

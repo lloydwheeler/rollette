@@ -1,0 +1,33 @@
+.logo {
+  @include clearfix;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  text-align: center;
+
+  svg {
+    width: 100%;
+  }
+}
+
+.logo-star--one {
+  transition: fill-opacity .5s ease, transform .5s ease;
+  transform: scale(0);
+  transform-origin: 50%;
+
+  &.show {
+    fill-opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo-star--two,
+.logo-star--three {
+  transform: scale(0);
+  transition: fill-opacity .5s ease, transform .5s ease;
+  transform-origin: 50%;
+
+  &.show {
+    fill-opacity: 1;
+    transform: scale(1);
+  }
+}

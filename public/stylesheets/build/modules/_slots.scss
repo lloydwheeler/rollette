@@ -1,39 +1,74 @@
 .slots-wrapper {
-  height: 400px;
-  margin: 150px auto;
-  perspective: 800;
-  width: 600px;
+  @include clearfix;
+  background: url('/images/slots-border.png') no-repeat;
+  height: 260px;
+  margin: 0 auto;
+  padding-top: 13px;
+  position: relative;
+  width: 495px;
+
+  &:before,
+  &:after {
+    margin-top: -80px;
+    position: absolute;
+    top: 50%;
+  }
+
+  &:before {
+    content: url('/images/bolts-left.png');
+    left: -150px;
+  }
+
+  &:after {
+    content: url('/images/bolts-right.png');
+    right: -150px;
+  }
 }
 
 .slots {
-  height: 400px;
-  margin: 0 auto;
-  transform-style: preserve-3d;
-  width: 600px;
+  background: #000;
+  border-radius: 5px;
+  height: 233px;
+  margin-left: 10px;
+  // overflow: hidden;
+  position: relative;
+  width: 474px;
+
+  &:after {
+    content: url('/images/slot-shadow.png');
+    position: absolute;
+    z-index: 10;
+    left: 0;
+  }
 }
 
 .slot {
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 0 .5%;
   float: left;
-  height: 110px;
-  width: 200px;
-  transform-style: preserve-3d;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  height: 233px;
+  width: 23.75%;
+  transition: margin-top 3s ease;
   
-  
+  &:first-child {
+    margin-left: 1%;
+  }
+
+  &:last-child {
+    margin-right: 1%;
+  }
+
 }
 
 .slot__item {
-  background: red;
+  background: url('/images/slot-bg.png');
   backface-visibility: hidden;
-  position: absolute;
-  // left: 250px;
-  width: 100px;
-  height: 100px;
-  opacity: 0.7;
-  color: rgba(0,0,0,1);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  p {
+    padding-top: 100px;
+  }
 }
 
 @mixin animateSlots($duration, $numSlots) {
@@ -41,35 +76,43 @@
   .slot__item {
     @for $i from 1 through $numSlots {
       &:nth-child(#{$i}) {
-        transform: rotateX(#{($i - 1)*(360/$numSlots)}deg) translateZ(200px);
+        transform: rotateX(#{($i - 1)*(360/$numSlots)}deg) translateZ(100px);
       }
     }
   }
 }
 
-.slot-1 {
-  @include animateSlots(3s, 6);
+// .slot-1 {
+//   @include animateSlots(3s, 6);
 
-  &.roll {
-    animation-name: spin-1;
-  }
-}
+//   &.roll {
+//     animation-name: spin-1;
+//   }
+// }
 
-.slot-2 {
-  @include animateSlots(4.5s, 6);
+// .slot-2 {
+//   @include animateSlots(4.5s, 6);
 
-  &.roll {
-    animation-name: spin-1;
-  }
-}
+//   &.roll {
+//     animation-name: spin-2;
+//   }
+// }
 
-.slot-3 {
-  @include animateSlots(6s, 6);
+// .slot-3 {
+//   @include animateSlots(6s, 6);
 
-  &.roll {
-    animation-name: spin-1;
-  }
-}
+//   &.roll {
+//     animation-name: spin-3;
+//   }
+// }
+
+// .slot-4 {
+//   @include animateSlots(7.5s, 6);
+
+//   &.roll {
+//     animation-name: spin-4;
+//   }
+// }
 
 // Animation
 @keyframes spin-1 {
@@ -85,4 +128,9 @@
 @keyframes spin-3 {
   from  { transform: rotateX(0deg); }
   to { transform: rotateX(-1440deg); }
+}
+
+@keyframes spin-4 {
+  from  { transform: rotateX(0deg); }
+  to { transform: rotateX(-1800deg); }
 }
