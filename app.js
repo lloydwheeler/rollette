@@ -1,9 +1,9 @@
-var express = require('express')
-  , routes = require('./routes')
-  , http = require('http');
+var express = require('express'),
+    routes = require('./routes'),
+    http = require('http');
  
 var app = express();
-var server = app.listen(3000);
+var server = app.listen(80);
 var io = require('socket.io').listen(server);
  
 app.configure(function(){
@@ -22,7 +22,7 @@ app.get('/', routes.index);
 io.on('connection', function(socket) {
   var clientID = socket.id;
 
-  console.log('new client joined')
+  console.log('new client joined');
 
   socket.on('new-roll', function(fillings) {
     console.log('client has rolled');
