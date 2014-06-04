@@ -1,0 +1,38 @@
+.notification {
+  background: #333;
+  bottom: -75px;
+  padding: 1.5rem 0;
+  position: fixed;
+  text-align: center;
+  transition: bottom .5s ease;
+  width: 100%;
+
+  &.show {
+    bottom: 0;
+  }
+
+  p {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #fff3c1;
+    position: relative;
+
+    &:before,
+    &:after {
+      margin-top: -13px;
+      position: absolute;
+      top: 50%;
+    }
+
+    &:before {
+      content: url('/images/button-star.png');
+      left: -3rem;
+    }
+
+    &:after {
+      content: url('/images/button-star.png');
+      right: -3rem;
+    }
+  }
+}

@@ -24,11 +24,18 @@ body {
 }
 
 body {
-  background: url('/images/bg.jpg') center center;
+  background: #b34334;
   background-size: cover;
+  perspective: 1000;
 }
 
 .container {
   margin: 0 auto;
   width: 600px;
+}
+
+.roll-wrapper {
+  background: url('/images/bg.jpg') center center;
+  height: 100%;
+  padding-top: 3rem;
 }

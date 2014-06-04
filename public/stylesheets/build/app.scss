@@ -1,7 +1,10 @@
 @import "base/reset";
+@import "modules/typography";
 
 @import "modules/base";
 @import "modules/buttons";
 @import "modules/controls";
 @import "modules/header";
+@import "modules/notification";
+@import "modules/result";
 @import "modules/slots";

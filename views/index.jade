@@ -1,70 +1,27 @@
 extends layout
 
 block content
-  section.container
-    figure.logo
-      include ../public/images/logo.svg
+  .roll-wrapper
+    section.container
+      figure.logo
+        include ../public/images/logo.svg
 
-  .slots-wrapper
-      .slots
-        ul.slot.slot-1
-          li.slot__item
-            p Egg
-          li.slot__item
-            p Sausage
-          li.slot__item
-            p Onion
-          li.slot__item
-            p Black Pudding
-          li.slot__item
-            p Bacon
-          li.slot__item
-            p Veggie Sausage
-        ul.slot.slot-2
-          li.slot__item
-            p Egg
-          li.slot__item
-            p Sausage
-          li.slot__item
-            p Onion
-          li.slot__item
-            p Black Pudding
-          li.slot__item
-            p Bacon
-          li.slot__item
-            p Veggie Sausage
-        ul.slot.slot-3
-          li.slot__item
-            p Egg
-          li.slot__item
-            p Sausage
-          li.slot__item
-            p Onion
-          li.slot__item
-            p Black Pudding
-          li.slot__item
-            p Bacon
-          li.slot__item
-            p Veggie Sausage 
-        ul.slot.slot-4
-          li.slot__item
-            p Egg
-          li.slot__item
-            p Sausage
-          li.slot__item
-            p Onion
-          li.slot__item
-            p Black Pudding
-          li.slot__item
-            p Bacon
-          li.slot__item
-            p Veggie Sausage
-
-
-    div.slot-controls
-      a.roll-comrade ROLL Comrade
+    .slots-wrapper
+        .slots
+          ul.slot.slot-1
+          ul.slot.slot-2
+          ul.slot.slot-3
+          ul.slot.slot-4
+          
+      div.slot-controls
+        a.roll-comrade rOll Comrade
   
+  .roll-result-wrapper
+    .h2.roll-result
+    a.order-roll Order Roll
+    a.roll-again ROll Again
 
-  
+  footer.notification
+    p Someone rolled something!
 
 

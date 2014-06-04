@@ -1,0 +1,22 @@
+.roll-result-wrapper {
+  background: #333;
+  bottom: 100%;
+  color: #fff3c1;
+  font-size: 3rem;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+
+  
+}
+
+.roll-result {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.roll-again,
+.order-roll {
+  @include button;
+}

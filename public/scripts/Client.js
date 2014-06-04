@@ -1,7 +1,7 @@
-function Client(server, port) {
+function Client(server, port) {  
+  this.slots = new Slots();
   this.socket = io.connect(server + ':' + port);
   this.init();
-  this.slots = new Slots();
 }
 
 
@@ -15,7 +15,9 @@ Client.prototype.init = function() {
 
   // When the client clicks the begin roll button
   $('.roll-comrade').click(function() {
-    self.beginRoll();
+    if(!$(this).hasClass('disabled')) {
+      self.beginRoll();
+    }
   });
 };
 
@@ -23,14 +25,30 @@ Client.prototype.init = function() {
 
 Client.prototype.newRollFromServer = function(data) {
   // Some lucky person has rolled!
-  this.slots.playSound();
+  // this.slots.playSound();
+  this.showNotification(this.parseMessage("Someone rolled a ", data.data.fillings));
 };
 
 
 
 Client.prototype.beginRoll = function() {
-  // Start the slot animation
-  var fillings = ['sausage', 'egg', 'bacon'];
+  // Set and get a new filling result
+  var fillings = this.slots.getResult();
+ 
+  // Disable the roll button until the slots have animated
+  $('.roll-comrade').addClass('disabled');
+  setTimeout(function() {
+    $('.roll-comrade').removeClass('disabled');
+  }, 3000);
+  
+
+  // Send the result to the server to broadcast to other clients
+  this.slots.animate();
+  $('.roll-result-wrapper').addClass('show');
+  $('.roll-wrapper').addClass('hide');
+  $('.roll-result').html(this.parseMessage("Enjoy your ", fillings));
+  // this.slots.playSound();
+
   this.sendMessageToServer('new-roll', {fillings: fillings});
 };
 
@@ -43,4 +61,21 @@ Client.prototype.sendMessageToServer = function(message, data) {
 
 
 
+Client.prototype.showNotification = function(message) {
+  $('.notification').html('<p>' + message + '</p>').addClass('show');
+  setTimeout(function() {
+    $('.notification').removeClass('show');
+  }, 7000);
+};
+
+
+
+Client.prototype.parseMessage = function(prefix, data) {
+  var fillings = data;
+  var message = prefix;
+  message += fillings.bread + " "
+  message += "with " + fillings.fillingOne + ", " + fillings.fillingTwo + " and " + fillings.fillingThree;
+
+  return message;
+};
 

@@ -30,7 +30,7 @@
   border-radius: 5px;
   height: 233px;
   margin-left: 10px;
-  // overflow: hidden;
+  overflow: hidden;
   position: relative;
   width: 474px;
 
@@ -43,11 +43,11 @@
 }
 
 .slot {
-  margin: 0 .5%;
-  float: left;
   height: 233px;
   width: 23.75%;
-  transition: margin-top 3s ease;
+  // transition: margin-top 3s ease;
+  transition: top .5s ease;
+  position: absolute;
   
   &:first-child {
     margin-left: 1%;
@@ -82,37 +82,19 @@
   }
 }
 
-// .slot-1 {
-//   @include animateSlots(3s, 6);
 
-//   &.roll {
-//     animation-name: spin-1;
-//   }
-// }
 
-// .slot-2 {
-//   @include animateSlots(4.5s, 6);
+.slot-2 {
+  margin-left: 113px;
+}
 
-//   &.roll {
-//     animation-name: spin-2;
-//   }
-// }
+.slot-3 {
+  margin-left: 226px;
+}
 
-// .slot-3 {
-//   @include animateSlots(6s, 6);
-
-//   &.roll {
-//     animation-name: spin-3;
-//   }
-// }
-
-// .slot-4 {
-//   @include animateSlots(7.5s, 6);
-
-//   &.roll {
-//     animation-name: spin-4;
-//   }
-// }
+.slot-4 {
+  margin-left: 339px;
+}
 
 // Animation
 @keyframes spin-1 {
