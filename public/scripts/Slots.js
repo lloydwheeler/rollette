@@ -1,6 +1,12 @@
 var BREADS = ["Soft White", "Soft Brown", "Sub", "Crusty Roll"];
 var FILLINGS = ["Bacon", "Sausage", "Egg", "Black Pudding", "Mushrooms", "Onions", "Veggie Sausage", "Cheese"];
 var SLOT_HEIGHT = 233;
+var requestAnimationFrame = window.requestAnimationFrame || 
+                            window.mozRequestAnimationFrame || 
+                            window.webkitRequestAnimationFrame || 
+                            window.msRequestAnimationFrame;
+
+
 
 
 
@@ -8,6 +14,8 @@ function Slots() {
   // Set the anthem audio
   this.anthem = new Audio("../audio/anthem-snippet.mp3");
   this.anthem.volume = .25;
+
+  
 
   // Init slots
   this.setResult();
@@ -80,11 +88,9 @@ Slots.prototype.createSlots = function() {
 };
 
 
-Slots.prototype.animate = function() {
-  $('.slot-1').css('top', -(this.fillingIndexes.bread) * SLOT_HEIGHT + 'px');
-  $('.slot-2').css('top', -(this.fillingIndexes.fillingOne) * SLOT_HEIGHT + 'px');
-  $('.slot-3').css('top', -(this.fillingIndexes.fillingTwo) * SLOT_HEIGHT + 'px');
-  $('.slot-4').css('top', -(this.fillingIndexes.fillingThree) * SLOT_HEIGHT + 'px');
+Slots.prototype.draw = function() {
+  console.log('drawing');
+  requestAnimationFrame(this.draw());
 }
 
 

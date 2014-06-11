@@ -43,7 +43,7 @@ Client.prototype.beginRoll = function() {
   
 
   // Send the result to the server to broadcast to other clients
-  this.slots.animate();
+  this.slots.draw();
   $('.roll-result-wrapper').addClass('show');
   $('.roll-wrapper').addClass('hide');
   $('.roll-result').html(this.parseMessage("Enjoy your ", fillings));

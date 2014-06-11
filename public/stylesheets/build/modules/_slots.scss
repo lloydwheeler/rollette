@@ -45,29 +45,41 @@
 .slot {
   height: 233px;
   width: 23.75%;
-  // transition: margin-top 3s ease;
   transition: top .5s ease;
   position: absolute;
+
+  &:nth-child(odd) .slot__item:after {
+    content: url('/images/hex-red.png');
+  }
   
-  &:first-child {
-    margin-left: 1%;
+  &:nth-child(even) .slot__item:after {
+    content: url('/images/hex-black.png');
   }
-
-  &:last-child {
-    margin-right: 1%;
-  }
-
 }
 
 .slot__item {
   background: url('/images/slot-bg.png');
-  backface-visibility: hidden;
-  width: 100%;
   height: 100%;
+  position: relative;
   text-align: center;
 
+  &:after {
+    position: absolute;
+    left: 12px;
+    top: 62px;
+    z-index: 99;
+  }
+
   p {
+    color: #fff;
+    font-family: 'Montserrat';
+    font-size: .75em;
     padding-top: 100px;
+    position: relative;
+    z-index: 100;
+    width: 60px;
+    // background: red;
+    margin: 0 auto;
   }
 }
 
@@ -82,37 +94,19 @@
   }
 }
 
-
+.slot-1 {
+  margin-left: 6px;
+}
 
 .slot-2 {
-  margin-left: 113px;
+  margin-left: 122px;
 }
 
 .slot-3 {
-  margin-left: 226px;
+  margin-left: 238px;
 }
 
 .slot-4 {
-  margin-left: 339px;
+  margin-left: 354px;
 }
 
-// Animation
-@keyframes spin-1 {
-  from  { transform: rotateX(0deg); }
-  to { transform: rotateX(-720deg); }
-}
-
-@keyframes spin-2 {
-  from  { transform: rotateX(0deg); }
-  to { transform: rotateX(-1080deg); }
-}
-
-@keyframes spin-3 {
-  from  { transform: rotateX(0deg); }
-  to { transform: rotateX(-1440deg); }
-}
-
-@keyframes spin-4 {
-  from  { transform: rotateX(0deg); }
-  to { transform: rotateX(-1800deg); }
-}
