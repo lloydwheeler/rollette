@@ -32,6 +32,7 @@ Client.prototype.newRollFromServer = function(data) {
 
 
 Client.prototype.beginRoll = function() {
+  var self = this;
   // Set and get a new filling result
   var fillings = this.slots.getResult();
  
@@ -50,6 +51,19 @@ Client.prototype.beginRoll = function() {
   // this.slots.playSound();
 
   this.sendMessageToServer('new-roll', {fillings: fillings});
+  setTimeout(function() {
+    self.slots.playSound();
+    $.get( "tweet?tweet=" + self.parseMessage("Someone rolled a ", fillings));
+  }, 500);
+
+
+
+
+  $('.order-comrade').addClass('show').attr('href', 'mailto:lloyd.wheeler@sequence.co.uk?&subject=' + "Roll Order" + '&body=' + this.parseMessage("I rolled a ", fillings));
+
+
+
+
 };
 
 

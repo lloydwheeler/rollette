@@ -5,7 +5,8 @@
   text-align: center;
 }
 
-.roll-comrade {
+.roll-comrade,
+.order-comrade {
   @include button;
   background: #333 url('/images/button-texture.png');
   box-shadow: inset 0 0 0 4px #333,
@@ -22,5 +23,15 @@
     background: #9b372a url('/images/button-texture.png');
     box-shadow: inset 0 0 0 4px #9b372a,
                 inset 0 0 0 6px #b34334;  
+  }
+}
+
+
+.order-comrade {
+  display: none;
+
+  &.show {
+    margin-top: 30px;
+    display: block;
   }
 }

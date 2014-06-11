@@ -76,7 +76,7 @@ Slots.prototype.createSlots = function() {
     $('.slot-2, .slot-3, .slot-4').append('<li class="slot__item"><p>' + shuffledFillings[i] + '</p></li>');
   }
 
-  console.log(this.fillings);
+ 
 
   // Set the margin offsets for each item
   $('.slot-1').css('top', -((this.fillingIndexes.bread) % BREADS.length - 1) * SLOT_HEIGHT + 'px');
@@ -89,13 +89,17 @@ Slots.prototype.createSlots = function() {
 
 
 Slots.prototype.draw = function() {
-  console.log('drawing');
-  requestAnimationFrame(this.draw());
+  // requestAnimationFrame(this.draw());
+  $('.slot-1').css('top', -(this.fillingIndexes.bread) * SLOT_HEIGHT + 'px');
+  $('.slot-2').css('top', -(this.fillingIndexes.fillingOne) * SLOT_HEIGHT + 'px');
+  $('.slot-3').css('top', -(this.fillingIndexes.fillingTwo) * SLOT_HEIGHT + 'px');
+  $('.slot-4').css('top', -(this.fillingIndexes.fillingThree) * SLOT_HEIGHT + 'px');
 }
 
 
 
 Slots.prototype.playSound = function() {
+  console.log('playing');
   this.anthem.play();
 };
 
