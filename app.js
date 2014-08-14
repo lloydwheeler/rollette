@@ -4,7 +4,7 @@ var express = require('express')
 
 var Twit = require('twit');
 var app = express();
-var server = app.listen(3000);
+var server = app.listen(1987);
 var io = require('socket.io').listen(server);
  
 app.configure(function(){
