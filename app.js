@@ -39,7 +39,7 @@ io.on('connection', function(socket) {
 
 
 
-
+console.log("starting server")
 
 
 var T = new Twit({
